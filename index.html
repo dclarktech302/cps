@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clark & Co. Professional Services | Where Precision Meets Possibility</title>
+  <meta name="description" content="Clark & Co. Professional Services — a family business with 15+ years of combined expertise in bookkeeping, tax filing, web development, and business consultation. Proudly serving our local community."/>
+  <meta name="keywords" content="bookkeeping, tax services, web development, business consultation, family business, professional services, Clark and Co"/>
+  <meta name="author" content="Clark & Co. Professional Services"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Clark & Co. Professional Services"/>
+  <meta property="og:description" content="Where precision meets possibility. Bookkeeping, taxes, web development & business consultation — rooted in community."/>
+  <link rel="canonical" href="https://dclarktech302.github.io/sampletaxsite.github.io/"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Clark & Co. Professional Services","description":"Family business offering bookkeeping, tax services, web development, and business consultation with 15+ years combined experience.","serviceType":["Bookkeeping","Tax Preparation","Web Development","Business Consultation"],"slogan":"Where precision meets possibility."}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+
+  <style>
+    :root{
+      --white:#ffffff;--off-white:#f7f8fc;--gray-50:#f0f2f7;--gray-100:#e3e7f0;
+      --gray-300:#b0b8cc;--gray-500:#6b7592;--gray-700:#3a4260;
+      --navy:#1a3a5c;--navy-mid:#234e7a;
+      --blue:#2563eb;--blue-light:#3b82f6;--blue-pale:#eff6ff;--blue-dim:rgba(37,99,235,0.09);
+      --green:#16a34a;--red:#dc2626;--text:#1c2236;--border:#e3e7f0;
+      --sh-sm:0 1px 4px rgba(26,58,92,0.07);
+      --sh-md:0 4px 24px rgba(26,58,92,0.11);
+      --sh-lg:0 12px 48px rgba(26,58,92,0.15);
+      --sh-xl:0 24px 80px rgba(26,58,92,0.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65}
+    h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.1;letter-spacing:-0.01em}
+    a{text-decoration:none;color:inherit}
+    button{font-family:'Outfit',sans-serif;cursor:pointer;border:none;outline:none}
+    input,textarea,select{font-family:'Outfit',sans-serif;outline:none}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--off-white)}
+    ::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:99px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+    ::selection{background:var(--blue-pale);color:var(--navy)}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+    .section{padding:7rem 0}
+    .section-sm{padding:5rem 0}
+    .label{font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue)}
+    .rule{width:36px;height:2px;background:var(--blue);margin:0.75rem 0 1.5rem}
+
+    /* Reveal */
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+    .rv.on{opacity:1;transform:none}
+    .rl{opacity:0;transform:translateX(-28px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+    .rl.on{opacity:1;transform:none}
+    .rr{opacity:0;transform:translateX(28px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+    .rr.on{opacity:1;transform:none}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:500;font-size:.92rem;border-radius:8px;padding:.8rem 1.8rem;transition:all .22s cubic-bezier(.4,0,.2,1);letter-spacing:.01em;border:none;cursor:pointer;font-family:'Outfit',sans-serif}
+    .btn-navy{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,58,92,.22)}
+    .btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,58,92,.3)}
+    .btn-ol{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+    .btn-ol:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+    .btn-blue{background:var(--blue);color:#fff;box-shadow:0 2px 12px rgba(37,99,235,.25)}
+    .btn-blue:hover{background:var(--blue-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+    .btn-wh{background:#fff;color:var(--navy);font-weight:600}
+    .btn-wh:hover{background:var(--off-white);transform:translateY(-2px)}
+    .btn-ol-wh{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+    .btn-ol-wh:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
+    .btn svg{flex-shrink:0;transition:transform .2s}
+    .btn:hover .arr{transform:translateX(4px)}
+    .lbtn{background:none;border:none;color:var(--blue);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem;padding:0;transition:gap .2s;font-family:'Outfit',sans-serif}
+    .lbtn:hover{gap:.6rem}
+
+    /* Navbar */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.93);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+    #nav.sc{border-color:var(--border);box-shadow:var(--sh-sm)}
+    .ni{max-width:1200px;margin:0 auto;padding:0 2.5rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;cursor:pointer;background:none;border:none;font-family:'Cormorant Garamond',serif}
+    .logo span{color:var(--blue)}
+    .nl{list-style:none;display:flex;align-items:center;gap:2.2rem}
+    .nlink{font-size:.875rem;font-weight:500;color:var(--gray-700);transition:color .2s;padding:.25rem 0;border-bottom:2px solid transparent;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:'Outfit',sans-serif}
+    .nlink:hover,.nlink.act{color:var(--blue);border-bottom-color:var(--blue)}
+    .hb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hb span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
+    .hb.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hb.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hb.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .drawer{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:490;padding:2.5rem 2rem;flex-direction:column;gap:0;border-top:1px solid var(--border);transform:translateX(110%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex}
+    .drawer.op{transform:none}
+    .dlink{display:block;padding:1.1rem 0;border-bottom:1px solid var(--border);font-size:1.1rem;font-weight:500;color:var(--text);cursor:pointer;transition:color .2s;background:none;border-top:none;border-left:none;border-right:none;text-align:left;font-family:'Outfit',sans-serif;width:100%}
+    .dlink:hover{color:var(--blue)}
+
+    /* Hero */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:68px;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff 0%,var(--off-white) 100%)}
+    #hcanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.38}
+    .hleft{padding:5rem 0 5rem 2.5rem;max-width:640px;position:relative;z-index:2}
+    .hbadge{display:inline-flex;align-items:center;gap:.7rem;background:var(--blue-pale);border:1px solid rgba(37,99,235,.2);border-radius:99px;padding:.4rem 1rem;margin-bottom:2rem}
+    .pdot{width:8px;height:8px;background:var(--blue);border-radius:50%;position:relative;flex-shrink:0}
+    .pdot::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--blue);animation:pr 2s ease infinite}
+    @keyframes pr{0%{transform:scale(1);opacity:1}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1);opacity:0}}
+    .btext{font-size:.77rem;font-weight:600;color:var(--blue);letter-spacing:.07em;text-transform:uppercase}
+    .hero h1{font-size:clamp(2.8rem,5.5vw,5rem);font-weight:600;line-height:1.02;margin-bottom:1.5rem}
+    .hero h1 em{font-style:italic;color:var(--blue)}
+    .hsub{font-size:1.05rem;color:var(--gray-500);line-height:1.82;margin-bottom:2.5rem;max-width:480px}
+    .hact{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+    .htrust{display:flex;align-items:center;gap:2rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+    .tnum{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1}
+    .tnum sup{font-size:.9rem;color:var(--blue);font-family:'Outfit',sans-serif}
+    .tlbl{font-size:.77rem;color:var(--gray-500);margin-top:.2rem;line-height:1.4;white-space:pre-line}
+    .tdiv{width:1px;height:44px;background:var(--border)}
+    .hright{position:relative;height:100vh;background:var(--off-white);overflow:hidden}
+    .gbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.55}
+    .gorb{position:absolute;top:-80px;right:-80px;width:520px;height:520px;background:radial-gradient(circle,rgba(37,99,235,.08) 0%,transparent 68%)}
+    .hpills{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:3rem;gap:1.1rem;z-index:2}
+    .pill{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;box-shadow:var(--sh-sm);transition:all .28s cubic-bezier(.4,0,.2,1);cursor:pointer}
+    .pill:hover{transform:translateX(8px);box-shadow:var(--sh-md);border-color:var(--blue-light)}
+    .pico{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .ptxt strong{display:block;font-size:.95rem;font-weight:600;color:var(--text)}
+    .ptxt span{font-size:.77rem;color:var(--gray-500)}
+    .parr{margin-left:auto;color:var(--gray-300);transition:color .2s,transform .2s;flex-shrink:0}
+    .pill:hover .parr{color:var(--blue);transform:translateX(4px)}
+
+    /* Marquee */
+    .mq{background:var(--navy);overflow:hidden;padding:.9rem 0}
+    .mqt{display:flex;animation:mqs 35s linear infinite;white-space:nowrap}
+    .mqt:hover{animation-play-state:paused}
+    .mqi{display:inline-flex;align-items:center;gap:1rem;padding:0 2rem;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .mqdot{width:4px;height:4px;background:var(--blue-light);border-radius:50%;flex-shrink:0}
+    @keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* Services */
+    .stabs{display:flex;gap:.5rem;margin:2.5rem 0;flex-wrap:wrap}
+    .stab{padding:.5rem 1.2rem;border-radius:99px;border:1.5px solid var(--border);background:transparent;color:var(--gray-500);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif}
+    .stab:hover{border-color:var(--blue);color:var(--blue)}
+    .stab.act{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--border);border:1.5px solid var(--border);border-radius:18px;overflow:hidden}
+    .sc{background:#fff;padding:2.8rem;position:relative;cursor:pointer;transition:background .25s;overflow:hidden}
+    .sc::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--blue);transition:height .35s cubic-bezier(.4,0,.2,1)}
+    .sc:hover,.sc.hl{background:var(--blue-pale)}
+    .sc:hover::before,.sc.hl::before{height:100%}
+    .snum{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--gray-100);line-height:1;margin-bottom:1.5rem;transition:color .25s}
+    .sc:hover .snum,.sc.hl .snum{color:rgba(37,99,235,.1)}
+    .sico{width:50px;height:50px;border-radius:10px;background:var(--off-white);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem;transition:background .25s}
+    .sc:hover .sico,.sc.hl .sico{background:rgba(37,99,235,.1)}
+    .sc h3{font-size:1.5rem;font-weight:600;margin-bottom:.75rem;color:var(--navy)}
+    .sc p{color:var(--gray-500);font-size:.92rem;line-height:1.7;margin-bottom:1.2rem}
+    .sfeats{list-style:none;margin-bottom:1.2rem;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s;opacity:0}
+    .sfeats.op{max-height:300px;opacity:1}
+    .sfeats li{font-size:.85rem;color:var(--gray-500);padding:.28rem 0;display:flex;align-items:center;gap:.5rem}
+    .sfeats li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0}
+
+    /* About */
+    .abwrap{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .abgrid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+    .abimgbox{border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--gray-100);box-shadow:var(--sh-xl);position:relative}
+    .abbadge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--navy);color:#fff;border-radius:14px;padding:1.6rem 1.8rem;box-shadow:var(--sh-lg)}
+    .abnum{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1}
+    .ablbl{font-size:.77rem;color:rgba(255,255,255,.5);margin-top:.25rem;line-height:1.35}
+    .abtxt p{color:var(--gray-500);font-size:1rem;line-height:1.82;margin-bottom:1rem}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+    .pillar{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:all .25s;cursor:default}
+    .pillar:hover{border-color:var(--blue-light);box-shadow:var(--sh-sm);transform:translateY(-2px)}
+    .pil-ico{font-size:1.3rem;margin-bottom:.5rem}
+    .pillar h4{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+    .pillar p{font-size:.8rem;color:var(--gray-500);line-height:1.5}
+
+    /* Why */
+    .mrow{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-top:2.5rem}
+    .mcell{background:#fff;padding:2.5rem 2rem;text-align:center;transition:background .2s}
+    .mcell:hover{background:var(--blue-pale)}
+    .mnum{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--navy);line-height:1;transition:transform .3s}
+    .mcell:hover .mnum{transform:scale(1.06)}
+    .munit{font-size:1.5rem;color:var(--blue);font-family:'Cormorant Garamond',serif}
+    .mlbl{font-size:.78rem;color:var(--gray-500);margin-top:.5rem;line-height:1.45;white-space:pre-line}
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+    .frow{display:flex;gap:1rem;align-items:flex-start}
+    .fcheck{width:24px;height:24px;border-radius:50%;background:var(--blue-dim);border:1.5px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .fcheck svg{width:12px;height:12px;color:var(--blue)}
+    .frow h4{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+    .frow p{font-size:.875rem;color:var(--gray-500);line-height:1.6}
+
+    /* Bars */
+    .brow{margin-bottom:1.2rem}
+    .btop{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:.4rem}
+    .btop span:last-child{color:var(--blue);font-weight:600}
+    .btrack{height:5px;background:var(--gray-100);border-radius:99px;overflow:hidden}
+    .bfill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--blue-light));width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+
+    /* Process */
+    .prwrap{background:var(--navy);color:#fff}
+    .prgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative}
+    .prgrid::before{content:'';position:absolute;top:27px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);height:1px;background:rgba(255,255,255,.1)}
+    .prstep{padding:0 1.5rem;position:relative;z-index:1}
+    .prcircle{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;transition:background .3s,border-color .3s}
+    .prstep:hover .prcircle{background:var(--blue);border-color:var(--blue)}
+    .prstep h3{font-size:1.2rem;color:#fff;margin-bottom:.6rem}
+    .prstep p{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7}
+
+    /* FAQ */
+    .faqlist{margin-top:3rem;display:flex;flex-direction:column;gap:0;border:1.5px solid var(--border);border-radius:14px;overflow:hidden}
+    .faqitem{border-bottom:1px solid var(--border);background:#fff;transition:background .2s}
+    .faqitem:last-child{border-bottom:none}
+    .faqitem.op{background:var(--blue-pale)}
+    .faqbtn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2rem;cursor:pointer;background:none;border:none;text-align:left;gap:1rem;font-family:'Outfit',sans-serif}
+    .faqbtn h4{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;color:var(--navy)}
+    .faqico{width:28px;height:28px;border-radius:50%;background:var(--gray-50);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s,transform .3s;color:var(--gray-500)}
+    .faqitem.op .faqico{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(45deg)}
+    .faqbody{overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+    .faqbody.op{max-height:300px}
+    .faqbody p{padding:0 2rem 1.5rem;color:var(--gray-500);font-size:.95rem;line-height:1.78}
+
+    /* Testimonials */
+    .twrap{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+    .tcard{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;transition:all .28s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+    .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--blue),transparent);transform:scaleX(0);transition:transform .3s}
+    .tcard:hover{border-color:var(--blue-light);box-shadow:var(--sh-md);transform:translateY(-5px)}
+    .tcard:hover::before{transform:scaleX(1)}
+    .tstars{color:#f59e0b;font-size:.9rem;margin-bottom:1rem;letter-spacing:2px}
+    .tcard blockquote{font-size:.95rem;color:var(--gray-700);line-height:1.78;margin-bottom:1.5rem}
+    .tauthor{display:flex;align-items:center;gap:.8rem;padding-top:1rem;border-top:1px solid var(--border)}
+    .tav{width:42px;height:42px;border-radius:50%;background:var(--blue-dim);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--navy);font-size:1rem;flex-shrink:0}
+    .tauthor strong{display:block;font-size:.9rem;color:var(--text)}
+    .tauthor span{font-size:.77rem;color:var(--gray-500)}
+
+    /* CTA */
+    .ctawrap{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+    .ctawrap::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,.15) 0%,transparent 70%);pointer-events:none}
+    .ctawrap h2{color:#fff;margin-bottom:1rem}
+    .ctasub{color:rgba(255,255,255,.58);font-size:1.05rem;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+    .ctabtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+    /* Contact */
+    .conlayout{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start}
+    .coninfo p{color:var(--gray-500);font-size:.95rem;line-height:1.78;margin-bottom:2rem}
+    .citem{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.3rem}
+    .cico{width:44px;height:44px;border-radius:10px;background:var(--blue-dim);border:1.5px solid rgba(37,99,235,.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .citem strong{display:block;font-size:.85rem;font-weight:600;color:var(--text)}
+    .citem span{font-size:.875rem;color:var(--gray-500)}
+    .wabtn{display:inline-flex;align-items:center;gap:.6rem;background:#25D366;color:#fff;font-weight:600;font-size:.9rem;padding:.75rem 1.5rem;border-radius:8px;margin-top:1rem;transition:all .22s;border:none;cursor:pointer;font-family:'Outfit',sans-serif}
+    .wabtn:hover{background:#1ebe5b;transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,211,102,.3)}
+
+    /* Form */
+    .cf{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:2.8rem;box-shadow:var(--sh-md)}
+    .cf h3{font-size:1.5rem;margin-bottom:.3rem;color:var(--navy)}
+    .cfsub{font-size:.875rem;color:var(--gray-500);margin-bottom:2rem}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fgrp{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+    .fgrp label{font-size:.74rem;font-weight:600;color:var(--gray-700);letter-spacing:.07em;text-transform:uppercase}
+    .fgrp input,.fgrp select,.fgrp textarea{font-size:.95rem;color:var(--text);background:var(--off-white);border:1.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;transition:all .2s;width:100%;font-family:'Outfit',sans-serif}
+    .fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.09)}
+    .fgrp input.er,.fgrp select.er,.fgrp textarea.er{border-color:var(--red);box-shadow:0 0 0 3px rgba(220,38,38,.07)}
+    .emsg{font-size:.74rem;color:var(--red)}
+    .fgrp input::placeholder,.fgrp textarea::placeholder{color:var(--gray-300)}
+    .fgrp textarea{resize:vertical;min-height:110px}
+    .subbtn{width:100%;justify-content:center;padding:.9rem;font-size:1rem;font-weight:600;border-radius:8px;transition:all .22s}
+    .subbtn.done{background:var(--green)!important;cursor:default}
+
+    /* Toast */
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;background:var(--navy);color:#fff;padding:1rem 1.5rem;border-radius:14px;box-shadow:var(--sh-xl);display:flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:500;transform:translateY(120px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);max-width:360px;pointer-events:none}
+    .toast.sh{transform:none;opacity:1;pointer-events:all}
+    .tclose{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.55);cursor:pointer;font-size:1.2rem;line-height:1;padding:0;transition:color .2s}
+    .tclose:hover{color:#fff}
+
+    /* Back to top */
+    .btt{position:fixed;bottom:2rem;left:2rem;z-index:400;width:46px;height:46px;background:var(--navy);color:#fff;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh-md);transition:all .3s;opacity:0;transform:translateY(20px);pointer-events:none}
+    .btt.vs{opacity:1;transform:none;pointer-events:all}
+    .btt:hover{background:var(--blue);transform:translateY(-3px)}
+
+    /* Footer */
+    footer{background:#0f1e31;color:#fff}
+    .ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+    .flogo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+    .flogo span{color:var(--blue-light)}
+    .fbrand p{color:rgba(255,255,255,.38);font-size:.875rem;line-height:1.72;margin-top:1rem;max-width:240px}
+    .fcol h5{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.2rem}
+    .fcol ul{list-style:none}
+    .fcol li+li{margin-top:.65rem}
+    .flink{color:rgba(255,255,255,.48);font-size:.875rem;transition:color .2s;cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;text-align:left;padding:0}
+    .flink:hover{color:#fff}
+    .fbot{padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+    .fbot p{font-size:.82rem;color:rgba(255,255,255,.25)}
+    .ftag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:rgba(255,255,255,.32)}
+
+    /* Spinner */
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hleft{padding:5rem 2.5rem 2rem;max-width:100%}
+      .hright{height:420px}
+      .hpills{padding:2rem}
+      .abgrid{grid-template-columns:1fr;gap:3rem}
+      .abimgbox{aspect-ratio:16/9}
+      .prgrid{grid-template-columns:repeat(2,1fr);gap:2.5rem}
+      .prgrid::before{display:none}
+      .tgrid{grid-template-columns:1fr}
+      .conlayout{grid-template-columns:1fr;gap:3rem}
+      .ftop{grid-template-columns:1fr 1fr;gap:2rem}
+    }
+    @media(max-width:768px){
+      .nl{display:none}
+      .hb{display:flex}
+      .container{padding:0 1.25rem}
+      .section{padding:4.5rem 0}
+      .sgrid{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr}
+      .pillars{grid-template-columns:1fr}
+      .prgrid{grid-template-columns:1fr}
+      .ftop{grid-template-columns:1fr}
+      .fbot{flex-direction:column;align-items:flex-start}
+      .frow{grid-template-columns:1fr}
+      .htrust{flex-wrap:wrap;gap:1.2rem}
+      .abbadge{right:.25rem;bottom:-.25rem}
+      .why-inner{grid-template-columns:1fr!important}
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback } = React;
+
+const SERVICES = [
+  { id:'bookkeeping', num:'01', icon:'📒', label:'Bookkeeping', bg:'#eff6ff',
+    desc:'Accurate, consistent financial records you can rely on. We handle the numbers so you can focus on running your business.',
+    features:['Monthly reconciliation','P&L statements','Cash flow tracking','Payroll support','Cloud-based records'] },
+  { id:'taxes', num:'02', icon:'🧾', label:'Tax Services', bg:'#f0fdf4',
+    link:'https://dclarktech302.github.io/sampletaxsite.github.io/',
+    desc:'From simple individual returns to complex business filings — we maximize your refund, ensure compliance, and keep you ahead of every deadline.',
+    features:['Individual & business returns','IRS e-filing','Audit support','Tax planning','Prior year amendments'] },
+  { id:'webdev', num:'03', icon:'💻', label:'Web Development', bg:'#fef3c7',
+    desc:'Modern, fast, and professional websites built to represent your brand with pride. From landing pages to full applications — engineered to perform.',
+    features:['Custom design','Mobile-responsive','SEO optimized','E-commerce ready','Ongoing maintenance'] },
+  { id:'consultation', num:'04', icon:'📈', label:'Business Consultation', bg:'#fdf2f8',
+    desc:'Strategic guidance rooted in real-world HR and software experience. We help you make smarter decisions, grow confidently, and build lasting systems.',
+    features:['Business planning','HR strategy','Process optimization','Financial analysis','Growth roadmaps'] }
+];
+
+const FAQS = [
+  { q:'Who is Clark & Co. Professional Services?',
+    a:'We are a family business with over 15 years of combined experience in software engineering and human resource management. Our mission: deliver high-quality professional services to our local community with integrity, transparency, and genuine care.' },
+  { q:'What services do you offer?',
+    a:'We offer four core services: Bookkeeping, Tax Preparation & Filing, Web Development, and Business Consultation. Many clients work with us across multiple services, allowing us to provide a more integrated strategy for their business.' },
+  { q:'Do you serve individuals as well as businesses?',
+    a:'Absolutely. We work with individuals needing tax preparation and financial guidance, as well as small and medium businesses that need bookkeeping, web development, or strategic consultation.' },
+  { q:'How do I get started?',
+    a:"The easiest way is to fill out our contact form or message us on WhatsApp. We offer a free initial consultation to understand your needs — no commitment required." },
+  { q:'How much do your services cost?',
+    a:"Pricing is tailored to each client's unique situation and scope of work. We believe in transparent, fair pricing with no hidden fees. During your free consultation we'll provide a clear quote." },
+  { q:'Are you available year-round or just during tax season?',
+    a:"We're available year-round. While taxes have a season, smart financial management and business strategy don't. We're here all year for bookkeeping, web projects, and business guidance." }
+];
+
+const TESTIMONIALS = [
+  { initials:'MR', name:'Marcus R.', role:'Local Small Business Owner', stars:5,
+    quote:"The team genuinely cared about my situation and handled my small business taxes flawlessly. It felt nothing like working with a big firm. I saved more on my return this year than I ever expected." },
+  { initials:'ST', name:'Sandra T.', role:'Independent Consultant', stars:5,
+    quote:"The website they built for my consulting practice is stunning — fast, professional, and perfectly on brand. My clients comment on it constantly. This team overdelivered in every way." },
+  { initials:'JL', name:'James L.', role:'E-Commerce Business Owner', stars:5,
+    quote:"Their HR background gave me perspectives I'd never considered. The consultation completely changed how I approach operations and hiring. Worth every penny and more." }
+];
+
+const METRICS = [
+  { num:15, suffix:'+', label:'Years Combined\nExperience' },
+  { num:98, suffix:'%', label:'Client Satisfaction\nRate' },
+  { num:4,  suffix:'',  label:'Integrated\nService Areas' },
+  { num:100,suffix:'%', label:'Community\nCommitment' }
+];
+
+const FEATURES = [
+  { title:'Personalized Service',       desc:"Work directly with family — no hand-offs or ticket queues. We know you by name and by goal." },
+  { title:'Transparent Pricing',        desc:"No hidden fees. Clear quotes up front so you can make confident decisions every time." },
+  { title:'Cross-Discipline Expertise', desc:"Finance, HR, and technology under one roof — rare perspective, exceptional outcomes." },
+  { title:'Year-Round Availability',    desc:"Tax season, growth season, any season — we're here whenever you need us." },
+  { title:'Technology-Enabled',         desc:"Modern tools deliver faster, more accurate, and more secure work for every client." },
+  { title:'Community Investment',       desc:"We live here too. Your success strengthens the community we all share and call home." }
+];
+
+const BARS = [
+  { label:'Tax Refund Maximization', pct:96 },
+  { label:'Bookkeeping Accuracy',    pct:99 },
+  { label:'Website Performance',     pct:94 },
+  { label:'Client Retention Rate',   pct:91 },
+  { label:'On-Time Delivery',        pct:98 }
+];
+
+/* Animated counter */
+function Counter({ target, suffix, label }) {
+  const ref = useRef(null);
+  const [val, setVal] = useState(0);
+  const [started, setStarted] = useState(false);
+  useEffect(() => {
+    const io = new IntersectionObserver(([e]) => { if(e.isIntersecting){ setStarted(true); io.disconnect(); }}, {threshold:.3});
+    if(ref.current) io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if(!started) return;
+    let s = null;
+    const step = ts => {
+      if(!s) s = ts;
+      const p = Math.min((ts-s)/1800, 1);
+      const e = 1 - Math.pow(1-p, 3);
+      setVal(Math.floor(e * target));
+      if(p < 1) requestAnimationFrame(step); else setVal(target);
+    };
+    requestAnimationFrame(step);
+  }, [started, target]);
+  return (
+    <div className="mcell" ref={ref}>
+      <div className="mnum">{val}<span className="munit">{suffix}</span></div>
+      <div className="mlbl">{label}</div>
+    </div>
+  );
+}
+
+/* Progress bars */
+function ProgressBars() {
+  const ref = useRef(null);
+  const [go, setGo] = useState(false);
+  useEffect(() => {
+    const io = new IntersectionObserver(([e]) => { if(e.isIntersecting){ setGo(true); io.disconnect(); }}, {threshold:.3});
+    if(ref.current) io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{marginTop:'2.5rem'}}>
+      {BARS.map((b,i) => (
+        <div key={b.label} className="brow">
+          <div className="btop">
+            <span style={{color:'var(--gray-700)',fontSize:'.85rem'}}>{b.label}</span>
+            <span>{b.pct}%</span>
+          </div>
+          <div className="btrack">
+            <div className="bfill" style={{width: go ? b.pct+'%' : '0%', transitionDelay: i*.13+'s'}}/>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* FAQ Item */
+function FaqItem({ q, a, open, onToggle }) {
+  return (
+    <div className={`faqitem ${open?'op':''}`}>
+      <button className="faqbtn" onClick={onToggle} aria-expanded={open}>
+        <h4>{q}</h4>
+        <span className="faqico">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 2v8M2 6h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </span>
+      </button>
+      <div className={`faqbody ${open?'op':''}`}><p>{a}</p></div>
+    </div>
+  );
+}
+
+/* Contact Form */
+function ContactForm({ onSuccess }) {
+  const blank = {fname:'',lname:'',email:'',phone:'',service:'',message:''};
+  const [f, setF] = useState(blank);
+  const [err, setErr] = useState({});
+  const [st, setSt] = useState('idle');
+
+  const upd = k => e => {
+    setF(p => ({...p,[k]:e.target.value}));
+    if(err[k]) setErr(p => ({...p,[k]:undefined}));
+  };
+
+  const validate = () => {
+    const e = {};
+    if(!f.fname.trim()) e.fname='Required';
+    if(!f.lname.trim()) e.lname='Required';
+    if(!f.email.trim()) e.email='Required';
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) e.email='Invalid email';
+    if(!f.service) e.service='Please select a service';
+    if(!f.message.trim()) e.message='Required';
+    else if(f.message.trim().length < 10) e.message='Please provide a bit more detail';
+    return e;
+  };
+
+  const submit = () => {
+    const e = validate();
+    if(Object.keys(e).length){ setErr(e); return; }
+    setSt('loading');
+    setTimeout(() => {
+      setSt('done');
+      onSuccess();
+      setF(blank);
+      setTimeout(() => setSt('idle'), 5000);
+    }, 1300);
+  };
+
+  const Field = ({k, label, type='text', placeholder, as, opts}) => (
+    <div className="fgrp">
+      <label htmlFor={k}>{label}</label>
+      {as==='select' ? (
+        <select id={k} value={f[k]} onChange={upd(k)} className={err[k]?'er':''}>
+          <option value="">Select a service…</option>
+          {opts.map(o=><option key={o.v} value={o.v}>{o.l}</option>)}
+        </select>
+      ) : as==='textarea' ? (
+        <textarea id={k} rows={4} value={f[k]} onChange={upd(k)} placeholder={placeholder} className={err[k]?'er':''}/>
+      ) : (
+        <input id={k} type={type} value={f[k]} onChange={upd(k)} placeholder={placeholder} className={err[k]?'er':''}/>
+      )}
+      {err[k] && <span className="emsg">{err[k]}</span>}
+    </div>
+  );
+
+  return (
+    <div className="cf">
+      <h3>Send Us a Message</h3>
+      <p className="cfsub">We'll respond within one business day.</p>
+      <div className="frow">
+        <Field k="fname" label="First Name" placeholder="Jane"/>
+        <Field k="lname" label="Last Name" placeholder="Smith"/>
+      </div>
+      <div className="frow">
+        <Field k="email" label="Email Address" type="email" placeholder="jane@company.com"/>
+        <Field k="phone" label="Phone (optional)" type="tel" placeholder="(555) 000-0000"/>
+      </div>
+      <Field k="service" label="Service Interested In" as="select" opts={[
+        {v:'bookkeeping',l:'Bookkeeping'},{v:'taxes',l:'Tax Services'},
+        {v:'webdev',l:'Web Development'},{v:'consultation',l:'Business Consultation'},
+        {v:'multiple',l:'Multiple Services'},{v:'unsure',l:"Not Sure Yet"}
+      ]}/>
+      <Field k="message" label="How Can We Help?" as="textarea" placeholder="Tell us about your situation…"/>
+      <button
+        className={`btn btn-navy subbtn ${st==='done'?'done':''}`}
+        onClick={st==='idle' ? submit : undefined}
+        disabled={st==='loading'}
+        style={st==='done'?{background:'var(--green)'}:{}}
+      >
+        {st==='loading' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{animation:'spin .9s linear infinite',flexShrink:0}}><circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,.3)" strokeWidth="2.5"/><path d="M12 3a9 9 0 019 9" stroke="white" strokeWidth="2.5" strokeLinecap="round"/></svg>}
+        {st==='idle' && 'Send Message'}
+        {st==='loading' && 'Sending…'}
+        {st==='done' && "✓ Sent! We'll be in touch soon."}
+        {st==='idle' && <svg className="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+      </button>
+    </div>
+  );
+}
+
+/* Main App */
+function App() {
+  const [scrolled, setScrolled]     = useState(false);
+  const [section,  setSection]      = useState('home');
+  const [mobOpen,  setMobOpen]      = useState(false);
+  const [faq,      setFaq]          = useState(null);
+  const [expSvc,   setExpSvc]       = useState(null);
+  const [svcTab,   setSvcTab]       = useState('all');
+  const [backTop,  setBackTop]      = useState(false);
+  const [toast,    setToast]        = useState({sh:false,msg:''});
+  const canvasRef = useRef(null);
+
+  /* Scroll reveal */
+  useEffect(() => {
+    const all = document.querySelectorAll('.rv,.rl,.rr');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }});
+    }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+    all.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  });
+
+  /* Canvas */
+  useEffect(() => {
+    const canvas = canvasRef.current; if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let raf, W, H;
+    const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; };
+    resize();
+    window.addEventListener('resize', resize);
+    const pts = Array.from({length:55}, () => ({
+      x:Math.random()*1400, y:Math.random()*800,
+      vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22,
+      r:Math.random()*1.8+.8
+    }));
+    const draw = () => {
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(p => {
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(37,99,235,.3)'; ctx.fill();
+      });
+      for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){
+          ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle=`rgba(37,99,235,${.1*(1-d/130)})`; ctx.lineWidth=.7; ctx.stroke();
+        }
+      }
+      raf=requestAnimationFrame(draw);
+    };
+    draw();
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize',resize); };
+  }, []);
+
+  /* Scroll events */
+  useEffect(() => {
+    const secs = ['home','services','about','why','process','faq','testimonials','contact'];
+    const h = () => {
+      setScrolled(window.scrollY>40);
+      setBackTop(window.scrollY>500);
+      for(let i=secs.length-1;i>=0;i--){
+        const el=document.getElementById(secs[i]);
+        if(el && el.getBoundingClientRect().top<=90){ setSection(secs[i]); break; }
+      }
+    };
+    window.addEventListener('scroll',h,{passive:true});
+    return () => window.removeEventListener('scroll',h);
+  },[]);
+
+  useEffect(() => {
+    const h = () => { if(window.innerWidth>768){ setMobOpen(false); document.body.style.overflow=''; }};
+    window.addEventListener('resize',h);
+    return () => window.removeEventListener('resize',h);
+  },[]);
+
+  const goto = useCallback(id => {
+    setMobOpen(false); document.body.style.overflow='';
+    const el=document.getElementById(id);
+    if(el) window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-76, behavior:'smooth'});
+  },[]);
+
+  const toggleMob = () => {
+    const n=!mobOpen; setMobOpen(n); document.body.style.overflow=n?'hidden':'';
+  };
+
+  const showToast = () => {
+    setToast({sh:true,msg:"Message sent! We'll be in touch within one business day."});
+    setTimeout(()=>setToast(t=>({...t,sh:false})),4500);
+  };
+
+  const NAV = ['services','about','why','process','faq','testimonials','contact'];
+  const nlbl = s => ({why:'Why Us',faq:'FAQ'}[s] || (s.charAt(0).toUpperCase()+s.slice(1)));
+  const visSvcs = svcTab==='all' ? SERVICES : SERVICES.filter(s=>s.id===svcTab);
+
+  return (
+    <>
+      {/* NAV */}
+      <nav id="nav" className={scrolled?'sc':''}>
+        <div className="ni">
+          <button className="logo" onClick={()=>goto('home')}>Clark <span>&amp;</span> Co.</button>
+          <ul className="nl">
+            {NAV.map(s=>(
+              <li key={s}><button className={`nlink ${section===s?'act':''}`} onClick={()=>goto(s)}>{nlbl(s)}</button></li>
+            ))}
+            <li><button className="btn btn-navy" style={{padding:'.55rem 1.3rem',fontSize:'.875rem'}} onClick={()=>goto('contact')}>Get Started</button></li>
+          </ul>
+          <button className={`hb ${mobOpen?'op':''}`} onClick={toggleMob} aria-label="Menu">
+            <span/><span/><span/>
+          </button>
+        </div>
+      </nav>
+
+      {/* DRAWER */}
+      <div className={`drawer ${mobOpen?'op':''}`}>
+        {NAV.map(s=><button key={s} className="dlink" onClick={()=>goto(s)}>{nlbl(s)}</button>)}
+        <button className="btn btn-navy" style={{marginTop:'1.5rem',width:'100%',justifyContent:'center'}} onClick={()=>goto('contact')}>Get Started →</button>
+      </div>
+
+      {/* HERO */}
+      <section className="hero" id="home">
+        <canvas ref={canvasRef} id="hcanvas"/>
+        <div className="hleft">
+          <div className="hbadge"><span className="pdot"/><span className="btext">Family-Owned · Community-Focused</span></div>
+          <h1>Where <em>Precision</em><br/>Meets<br/>Possibility.</h1>
+          <p className="hsub">Clark &amp; Co. — a family business with 15+ years of combined expertise in finance, technology, and human resources. Proudly serving our community with care and integrity.</p>
+          <div className="hact">
+            <button className="btn btn-navy" onClick={()=>goto('services')}>
+              Explore Services
+              <svg className="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+            <button className="btn btn-ol" onClick={()=>goto('contact')}>Free Consultation</button>
+          </div>
+          <div className="htrust">
+            {[{n:'15',s:'+',l:'Years Combined\nExperience'},{n:'4',s:'',l:'Core Services\nUnder One Roof'},{n:'100',s:'%',l:'Community\nCommitted'}].map((t,i)=>(
+              <React.Fragment key={t.n}>
+                {i>0 && <div className="tdiv"/>}
+                <div><div className="tnum">{t.n}{t.s&&<sup>{t.s}</sup>}</div><div className="tlbl">{t.l}</div></div>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+        <div className="hright">
+          <div className="gbg"/><div className="gorb"/>
+          <div className="hpills">
+            {SERVICES.map(s=>(
+              <div key={s.id} className="pill" onClick={()=>s.link?window.open(s.link,'_blank'):goto('services')}>
+                <div className="pico" style={{background:s.bg}}>{s.icon}</div>
+                <div className="ptxt"><strong>{s.label}</strong><span>{s.desc.split('.')[0]}.</span></div>
+                <span className="parr">→</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <div className="mq" aria-hidden="true">
+        <div className="mqt">
+          {[...Array(2)].map((_,r)=>
+            ['Bookkeeping','Tax Preparation','Web Development','Business Consultation','HR Management','Software Engineering','Financial Planning','Community Focused','Family Business']
+            .map((t,i)=><span key={`${r}-${i}`} className="mqi">{t}<span className="mqdot"/></span>)
+          )}
+        </div>
+      </div>
+
+      {/* SERVICES */}
+      <section className="section" id="services">
+        <div className="container">
+          <p className="label rv">What We Offer</p>
+          <div className="rule rv"/>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,maxWidth:560}}>Four Services.<br/>One Trusted Team.</h2>
+          <p className="rv" style={{fontSize:'1.05rem',color:'var(--gray-500)',maxWidth:520,marginTop:'1rem',lineHeight:1.78}}>Everything your business needs — financial, digital, and strategic — delivered by people who genuinely care about your success.</p>
+          <div className="stabs rv">
+            {[{id:'all',label:'All Services'},...SERVICES.map(s=>({id:s.id,label:`${s.icon} ${s.label}`}))].map(t=>(
+              <button key={t.id} className={`stab ${svcTab===t.id?'act':''}`} onClick={()=>{setSvcTab(t.id);setExpSvc(null);}}>
+                {t.label}
+              </button>
+            ))}
+          </div>
+          <div className="sgrid rv">
+            {visSvcs.map(s=>(
+              <div key={s.id} className={`sc ${expSvc===s.id?'hl':''}`} onClick={()=>setExpSvc(expSvc===s.id?null:s.id)}>
+                <div className="snum">{s.num}</div>
+                <div className="sico">{s.icon}</div>
+                <h3>{s.label}</h3>
+                <p>{s.desc}</p>
+                <ul className={`sfeats ${expSvc===s.id?'op':''}`}>
+                  {s.features.map(f=><li key={f}>{f}</li>)}
+                </ul>
+                <button className="lbtn">
+                  {expSvc===s.id?'Show less':'Learn more'}
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style={{transform:expSvc===s.id?'rotate(90deg)':'none',transition:'transform .3s'}}>
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                {s.link && (
+                  <a href={s.link} target="_blank" rel="noopener" className="btn btn-blue" style={{marginTop:'1rem',display:'inline-flex'}} onClick={e=>e.stopPropagation()}>
+                    File Taxes Now →
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="section abwrap" id="about">
+        <div className="container">
+          <div className="abgrid">
+            <div className="rl" style={{position:'relative'}}>
+              <div className="abimgbox">
+                <svg width="100%" height="100%" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="400" height="500" fill="#e8edf5"/>
+                  <line x1="0" y1="0" x2="400" y2="500" stroke="#d0d9e8" strokeWidth="1"/>
+                  <line x1="400" y1="0" x2="0" y2="500" stroke="#d0d9e8" strokeWidth="1"/>
+                  <line x1="200" y1="0" x2="200" y2="500" stroke="#d0d9e8" strokeWidth="1"/>
+                  <line x1="0" y1="250" x2="400" y2="250" stroke="#d0d9e8" strokeWidth="1"/>
+                  <circle cx="145" cy="178" r="46" fill="#b0c0d8"/>
+                  <path d="M72 328 Q72 275 145 275 Q218 275 218 328 L218 388 L72 388 Z" fill="#b0c0d8"/>
+                  <circle cx="272" cy="195" r="38" fill="#c4d0e4"/>
+                  <path d="M212 338 Q212 290 272 290 Q332 290 332 338 L332 388 L212 388 Z" fill="#c4d0e4"/>
+                  <rect x="60" y="408" width="280" height="72" rx="8" fill="white" fillOpacity="0.82"/>
+                  <text x="200" y="436" textAnchor="middle" fontFamily="Georgia,serif" fontSize="15" fill="#1a3a5c" fontWeight="600">Clark &amp; Co.</text>
+                  <text x="200" y="455" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="11" fill="#6b7592">Professional Services</text>
+                  <text x="200" y="470" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="10" fill="#6b7592">Family · Community · Excellence</text>
+                </svg>
+              </div>
+              <div className="abbadge">
+                <div className="abnum">15<span style={{fontSize:'1.2rem'}}>+</span></div>
+                <div className="ablbl">Years of Combined<br/>Expertise</div>
+              </div>
+            </div>
+            <div className="abtxt rr">
+              <p className="label">Our Story</p>
+              <div className="rule"/>
+              <h2 style={{fontSize:'clamp(1.9rem,3.5vw,3rem)',fontWeight:600,marginBottom:'1.2rem'}}>A Family Built on <em style={{fontStyle:'italic',color:'var(--blue)'}}>Service.</em></h2>
+              <p>Clark &amp; Co. was founded on a simple belief: every business and individual in our community deserves access to high-quality professional services delivered with genuine care.</p>
+              <p>We are a family business with over 15 years of combined experience spanning software engineering and human resource management — a unique blend that lets us see your business from every angle.</p>
+              <p>When you work with us, you work with people invested in your outcome, rooted in the same community, and proud of every client we serve.</p>
+              <div className="pillars">
+                {[
+                  {icon:'👨‍💻',title:'Software Engineering',desc:'Deep technical expertise powering our web and digital services.'},
+                  {icon:'🤝',title:'HR Management',desc:"People-first thinking embedded in every business consultation."},
+                  {icon:'🏘️',title:'Community Rooted',desc:'Motivated by serving the neighbors and businesses around us.'},
+                  {icon:'👨‍👩‍👧',title:'Family Values',desc:"Honest, accountable, personally committed to your success."}
+                ].map(p=>(
+                  <div key={p.title} className="pillar">
+                    <div className="pil-ico">{p.icon}</div>
+                    <h4>{p.title}</h4>
+                    <p>{p.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section className="section" id="why">
+        <div className="container">
+          <div className="why-inner" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'start'}}>
+            <div>
+              <p className="label rv">Why Choose Us</p>
+              <div className="rule rv"/>
+              <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,maxWidth:420}}>The Standard We Hold Ourselves To</h2>
+              <div className="mrow rv">
+                {METRICS.map(m=><Counter key={m.label} target={m.num} suffix={m.suffix} label={m.label}/>)}
+              </div>
+            </div>
+            <div>
+              <p className="label rv">Performance Snapshot</p>
+              <div className="rule rv"/>
+              <ProgressBars/>
+            </div>
+          </div>
+          <div className="fgrid" style={{marginTop:'4rem'}}>
+            {FEATURES.map((f,i)=>(
+              <div key={f.title} className="frow rv" style={{transitionDelay:`${i*.07}s`}}>
+                <div className="fcheck">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <div><h4>{f.title}</h4><p>{f.desc}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="section prwrap" id="process">
+        <div className="container">
+          <p className="label rv" style={{color:'rgba(255,255,255,.45)'}}>How It Works</p>
+          <div className="rule rv" style={{background:'rgba(255,255,255,.2)'}}/>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,maxWidth:460,color:'#fff'}}>Simple Steps,<br/>Lasting Results.</h2>
+          <p className="rv" style={{fontSize:'1.05rem',color:'rgba(255,255,255,.48)',marginTop:'.8rem'}}>Getting started is easy. Here's exactly what to expect.</p>
+          <div className="prgrid">
+            {[
+              {n:'1',title:'Free Consultation',desc:"A no-obligation conversation to understand your needs and goals — no pressure, just listening."},
+              {n:'2',title:'Tailored Plan',desc:"We design a custom scope: tax strategy, bookkeeping system, website brief, or business roadmap."},
+              {n:'3',title:'Expert Execution',desc:"We deliver with precision and keep you informed every step. No surprises — just reliable results."},
+              {n:'4',title:'Ongoing Partnership',desc:"We don't disappear after delivery. Ongoing support and check-ins keep your business growing."}
+            ].map((s,i)=>(
+              <div key={s.n} className="prstep rv" style={{transitionDelay:`${i*.12}s`}}>
+                <div className="prcircle">{s.n}</div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section" id="faq">
+        <div className="container" style={{maxWidth:820}}>
+          <p className="label rv">Common Questions</p>
+          <div className="rule rv"/>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600}}>Frequently Asked Questions</h2>
+          <p className="rv" style={{fontSize:'1.05rem',color:'var(--gray-500)',marginTop:'.8rem',lineHeight:1.78}}>Everything you need to know before getting started.</p>
+          <div className="faqlist rv">
+            {FAQS.map((f,i)=><FaqItem key={i} q={f.q} a={f.a} open={faq===i} onToggle={()=>setFaq(faq===i?null:i)}/>)}
+          </div>
+          <p className="rv" style={{marginTop:'2rem',color:'var(--gray-500)',fontSize:'.95rem'}}>
+            Still have questions?{' '}
+            <button onClick={()=>goto('contact')} style={{color:'var(--blue)',fontWeight:600,background:'none',border:'none',cursor:'pointer',fontSize:'.95rem',textDecoration:'underline',fontFamily:'Outfit,sans-serif'}}>
+              Send us a message →
+            </button>
+          </p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="section twrap" id="testimonials">
+        <div className="container">
+          <p className="label rv">Testimonials</p>
+          <div className="rule rv"/>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,maxWidth:480}}>What Our Community Says</h2>
+          <div className="tgrid">
+            {TESTIMONIALS.map((t,i)=>(
+              <div key={i} className="tcard rv" style={{transitionDelay:`${i*.1}s`}}>
+                <div className="tstars">{'★'.repeat(t.stars)}</div>
+                <blockquote>"{t.quote}"</blockquote>
+                <div className="tauthor">
+                  <div className="tav">{t.initials}</div>
+                  <div><strong>{t.name}</strong><span>{t.role}</span></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-sm ctawrap">
+        <div className="container">
+          <p className="label rv" style={{color:'rgba(255,255,255,.4)',display:'block',textAlign:'center',marginBottom:'1rem'}}>Ready to Begin?</p>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,textAlign:'center',color:'#fff'}}>Your Success Starts with<br/>One Conversation.</h2>
+          <p className="rv ctasub">Book a free consultation and discover what Clark &amp; Co. can do for you.</p>
+          <div className="ctabtns rv">
+            <button className="btn btn-wh" onClick={()=>goto('contact')}>
+              Schedule Free Consultation
+              <svg className="arr" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+            <a className="btn btn-ol-wh" href="https://dclarktech302.github.io/sampletaxsite.github.io/" target="_blank" rel="noopener">File Taxes Now</a>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="section" id="contact">
+        <div className="container">
+          <p className="label rv">Contact Us</p>
+          <div className="rule rv"/>
+          <h2 className="rv" style={{fontSize:'clamp(2rem,4vw,3.2rem)',fontWeight:600,marginBottom:'3rem'}}>Let's Work Together.</h2>
+          <div className="conlayout">
+            <div className="coninfo rl">
+              <p>Whether you have a quick question, are ready to start a project, or just want to explore your options — we'd love to hear from you. Expect a warm, prompt response.</p>
+              <div className="citem"><div className="cico">📧</div><div><strong>Email Us</strong><span>your@email.com</span></div></div>
+              <div className="citem"><div className="cico">💬</div><div><strong>WhatsApp</strong><span>Message us for the fastest response</span></div></div>
+              <button className="wabtn" onClick={()=>window.open('https://wa.me/1XXXXXXXXXX','_blank')}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Message on WhatsApp
+              </button>
+              <div className="citem" style={{marginTop:'1.5rem'}}><div className="cico">🕐</div><div><strong>Office Hours</strong><span>Mon – Fri: 9 AM – 6 PM</span></div></div>
+              <div className="citem"><div className="cico">📍</div><div><strong>Location</strong><span>Serving our local community &amp; remote clients nationwide</span></div></div>
+            </div>
+            <div className="rr"><ContactForm onSuccess={showToast}/></div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        <div className="container">
+          <div className="ftop">
+            <div className="fbrand">
+              <div className="flogo">Clark <span>&amp;</span> Co.</div>
+              <p>A family business dedicated to serving our community with professional expertise in finance, technology, and business strategy.</p>
+            </div>
+            <div className="fcol">
+              <h5>Services</h5>
+              <ul>
+                <li><button className="flink" onClick={()=>goto('services')}>Bookkeeping</button></li>
+                <li><a href="https://dclarktech302.github.io/sampletaxsite.github.io/" target="_blank" rel="noopener" className="flink">Tax Services</a></li>
+                <li><button className="flink" onClick={()=>goto('services')}>Web Development</button></li>
+                <li><button className="flink" onClick={()=>goto('services')}>Business Consultation</button></li>
+              </ul>
+            </div>
+            <div className="fcol">
+              <h5>Company</h5>
+              <ul>
+                <li><button className="flink" onClick={()=>goto('about')}>About Us</button></li>
+                <li><button className="flink" onClick={()=>goto('why')}>Why Choose Us</button></li>
+                <li><button className="flink" onClick={()=>goto('process')}>How It Works</button></li>
+                <li><button className="flink" onClick={()=>goto('testimonials')}>Testimonials</button></li>
+              </ul>
+            </div>
+            <div className="fcol">
+              <h5>Connect</h5>
+              <ul>
+                <li><button className="flink" onClick={()=>goto('contact')}>Contact Us</button></li>
+                <li><button className="flink" onClick={()=>window.open('https://wa.me/1XXXXXXXXXX','_blank')}>WhatsApp</button></li>
+                <li><button className="flink" onClick={()=>goto('faq')}>FAQ</button></li>
+                <li><a href="https://dclarktech302.github.io/sampletaxsite.github.io/" target="_blank" rel="noopener" className="flink">File Taxes</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="fbot">
+            <p>© 2025 Clark &amp; Co. Professional Services. All rights reserved.</p>
+            <span className="ftag">Where precision meets possibility.</span>
+          </div>
+        </div>
+      </footer>
+
+      {/* BACK TO TOP */}
+      <button className={`btt ${backTop?'vs':''}`} onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} aria-label="Back to top">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </button>
+
+      {/* TOAST */}
+      <div className={`toast ${toast.sh?'sh':''}`}>
+        <span style={{fontSize:'1.2rem',flexShrink:0}}>✅</span>
+        <span style={{flex:1}}>{toast.msg}</span>
+        <button className="tclose" onClick={()=>setToast(t=>({...t,sh:false}))}>×</button>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
