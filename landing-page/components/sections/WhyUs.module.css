@@ -1,0 +1,184 @@
+.section {
+  padding: 7rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.label {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.rule {
+  width: 36px;
+  height: 2px;
+  background: var(--blue);
+  margin: 0.75rem 0 1.5rem;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  max-width: 420px;
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+.metricCell {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.metricCell:hover {
+  background: var(--blue-pale);
+}
+
+.metricNum {
+  font-family: var(--font-cormorant), serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+.metricCell:hover .metricNum {
+  transform: scale(1.06);
+}
+
+.metricUnit {
+  font-size: 1.5rem;
+  color: var(--blue);
+  font-family: var(--font-cormorant), serif;
+}
+
+.metricLabel {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 0.5rem;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.barRow {
+  margin-bottom: 1.2rem;
+}
+
+.barTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  margin-bottom: 0.4rem;
+}
+
+.barTop span:last-child {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.barTrack {
+  height: 5px;
+  background: var(--gray-100);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.featureRow {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue-dim);
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check svg {
+  width: 12px;
+  height: 12px;
+  color: var(--blue);
+}
+
+.featureRow h4 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.featureRow p {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}

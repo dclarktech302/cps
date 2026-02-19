@@ -1,0 +1,147 @@
+.section {
+  padding: 7rem 0;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.label {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.rule {
+  width: 36px;
+  height: 2px;
+  background: var(--blue);
+  margin: 0.75rem 0 1.5rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: var(--gray-500);
+  margin-top: 0.8rem;
+  line-height: 1.78;
+}
+
+.list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  transition: background 0.2s;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item.open {
+  background: var(--blue-pale);
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  gap: 1rem;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.button h4 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gray-50);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.3s;
+  color: var(--gray-500);
+}
+
+.item.open .icon {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.body.bodyOpen {
+  max-height: 300px;
+}
+
+.body p {
+  padding: 0 2rem 1.5rem;
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+.footer {
+  margin-top: 2rem;
+  color: var(--gray-500);
+  font-size: 0.95rem;
+}
+
+.link {
+  color: var(--blue);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+}
