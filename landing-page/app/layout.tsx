@@ -20,17 +20,69 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Clark & Co. Professional Services | Where Precision Meets Possibility",
   description: "Clark & Co. Professional Services — a family business with 15+ years of combined expertise in bookkeeping, tax filing, web development, and business consultation. Proudly serving our local community.",
-  keywords: ["bookkeeping", "tax services", "web development", "business consultation", "family business", "professional services", "Clark and Co"],
+  keywords: [
+    "bookkeeping services",
+    "tax preparation",
+    "tax filing",
+    "web development",
+    "business consultation",
+    "family business",
+    "professional services",
+    "small business accounting",
+    "HR consulting",
+    "software engineering",
+    "local business services",
+    "Clark and Co",
+  ],
   authors: [{ name: "Clark & Co. Professional Services" }],
+  creator: "Clark & Co. Professional Services",
+  publisher: "Clark & Co. Professional Services",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://clarkandco.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
-    title: "Clark & Co. Professional Services",
-    description: "Where precision meets possibility. Bookkeeping, taxes, web development & business consultation — rooted in community.",
+    locale: "en_US",
+    url: "https://clarkandco.com",
+    title: "Clark & Co. Professional Services | Where Precision Meets Possibility",
+    description: "Family business with 15+ years of expertise in bookkeeping, taxes, web development & business consultation. Serving our community with integrity.",
     siteName: "Clark & Co. Professional Services",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Clark & Co. Professional Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clark & Co. Professional Services | Where Precision Meets Possibility",
+    description: "Family business with 15+ years of expertise in bookkeeping, taxes, web development & business consultation.",
+    images: ["/og-image.png"],
+    creator: "@clarkandco",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
   },
 };
 

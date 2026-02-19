@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Script from 'next/script';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
@@ -12,6 +13,7 @@ import { Process } from '@/components/sections/Process';
 import { FAQ } from '@/components/sections/FAQ';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Contact } from '@/components/sections/Contact';
+import { organizationSchema, breadcrumbSchema, faqSchema } from './structured-data';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
@@ -54,6 +56,23 @@ export default function Home() {
 
   return (
     <>
+      {/* Structured Data for SEO */}
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
       <Hero onNavigate={handleNavigate} />
       <Marquee />
