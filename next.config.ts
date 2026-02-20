@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
+            value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
@@ -44,6 +44,29 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              // Next.js requires 'unsafe-inline' for its runtime scripts and styles.
+              // Switch to nonce-based CSP for a stricter setup.
+              "script-src 'self' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline'",
+              // data: for favicon; https: for OG/social images hosted externally
+              "img-src 'self' data: https:",
+              // Fonts are downloaded locally by next/font — no external origin needed
+              "font-src 'self'",
+              // API routes and fetch calls
+              "connect-src 'self'",
+              // Prevent framing from any origin
+              "frame-ancestors 'none'",
+              // Restrict form targets
+              "form-action 'self'",
+              // Disallow plugins (Flash etc.)
+              "object-src 'none'",
+              "base-uri 'self'",
+            ].join('; '),
           },
         ],
       },
