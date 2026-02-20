@@ -1,0 +1,123 @@
+.wrapper {
+  background: var(--navy);
+  color: #fff;
+  padding: 7rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.label {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.rule {
+  width: 36px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0.75rem 0 1.5rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  max-width: 460px;
+  color: #fff;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.48);
+  margin-top: 0.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: calc(12.5% + 14px);
+  right: calc(12.5% + 14px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.step {
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.step:hover .circle {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.step h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.step p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .grid::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 4.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

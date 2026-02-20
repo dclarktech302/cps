@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --white: #ffffff;
+  --off-white: #f7f8fc;
+  --gray-50: #f0f2f7;
+  --gray-100: #e3e7f0;
+  --gray-300: #b0b8cc;
+  --gray-500: #6b7592;
+  --gray-700: #3a4260;
+  --navy: #1a3a5c;
+  --navy-mid: #234e7a;
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --blue-pale: #eff6ff;
+  --blue-dim: rgba(37, 99, 235, 0.09);
+  --green: #16a34a;
+  --red: #dc2626;
+  --text: #1c2236;
+  --border: #e3e7f0;
+  --sh-sm: 0 1px 4px rgba(26, 58, 92, 0.07);
+  --sh-md: 0 4px 24px rgba(26, 58, 92, 0.11);
+  --sh-lg: 0 12px 48px rgba(26, 58, 92, 0.15);
+  --sh-xl: 0 24px 80px rgba(26, 58, 92, 0.18);
+}
+
+@theme inline {
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-cormorant);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-outfit), sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-cormorant), serif;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-outfit), sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-outfit), sans-serif;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
+}
+
+::selection {
+  background: var(--blue-pale);
+  color: var(--navy);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *:not(.marquee-track),
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
