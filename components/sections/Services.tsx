@@ -58,18 +58,22 @@ export function Services({ onNavigate }: ServicesProps) {
             <div
               key={service.id}
               className={`${styles.card} ${expandedService === service.id ? styles.expanded : ''}`}
-              onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
               <div className={styles.number}>{service.num}</div>
               <div className={styles.icon}>{service.icon}</div>
               <h3>{service.label}</h3>
               <p>{service.desc}</p>
-              <ul className={`${styles.features} ${expandedService === service.id ? styles.show : ''}`}>
+              <ul id={`service-features-${service.id}`} className={`${styles.features} ${expandedService === service.id ? styles.show : ''}`}>
                 {service.features.map((f) => (
                   <li key={f}>{f}</li>
                 ))}
               </ul>
-              <button className={styles.learnMore}>
+              <button
+                className={styles.learnMore}
+                onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
+                aria-expanded={expandedService === service.id}
+                aria-controls={`service-features-${service.id}`}
+              >
                 {expandedService === service.id ? 'Show less' : 'Learn more'}
                 <svg
                   width="14"
@@ -96,7 +100,6 @@ export function Services({ onNavigate }: ServicesProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.ctaLink}
-                  onClick={(e) => e.stopPropagation()}
                 >
                   File Taxes Now →
                 </a>
