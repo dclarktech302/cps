@@ -87,6 +87,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   className={styles.link}
+                  // TODO: Replace 1XXXXXXXXXX with the actual business WhatsApp number
                   onClick={() => window.open('https://wa.me/1XXXXXXXXXX', '_blank')}
                 >
                   WhatsApp
