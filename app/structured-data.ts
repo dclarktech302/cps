@@ -6,6 +6,8 @@ export const organizationSchema = {
   url: 'https://clarkandco.com',
   logo: 'https://clarkandco.com/logo.png',
   image: 'https://clarkandco.com/og-image.png',
+  // TODO: Update the following placeholder values with real business information before deployment
+  // (telephone, email, addressLocality, addressRegion, latitude, longitude)
   telephone: '+1-XXX-XXX-XXXX',
   email: 'contact@clarkandco.com',
   address: {
