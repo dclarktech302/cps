@@ -140,22 +140,42 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className={styles.gridBg} />
         <div className={styles.orb} />
         <div className={styles.pills}>
-          {SERVICES.map((s) => (
-            <div
-              key={s.id}
-              className={styles.pill}
-              onClick={() => (s.link ? window.open(s.link, '_blank') : onNavigate('services'))}
-            >
-              <div className={styles.pillIcon} style={{ background: s.bg }}>
-                {s.icon}
-              </div>
-              <div className={styles.pillText}>
-                <strong>{s.label}</strong>
-                <span>{s.desc.split('.')[0]}.</span>
-              </div>
-              <span className={styles.pillArrow}>→</span>
-            </div>
-          ))}
+          {SERVICES.map((s) =>
+            s.link ? (
+              <a
+                key={s.id}
+                className={styles.pill}
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className={styles.pillIcon} style={{ background: s.bg }}>
+                  {s.icon}
+                </div>
+                <div className={styles.pillText}>
+                  <strong>{s.label}</strong>
+                  <span>{s.desc.split('.')[0]}.</span>
+                </div>
+                <span className={styles.pillArrow}>→</span>
+              </a>
+            ) : (
+              <button
+                key={s.id}
+                type="button"
+                className={styles.pill}
+                onClick={() => onNavigate('services')}
+              >
+                <div className={styles.pillIcon} style={{ background: s.bg }}>
+                  {s.icon}
+                </div>
+                <div className={styles.pillText}>
+                  <strong>{s.label}</strong>
+                  <span>{s.desc.split('.')[0]}.</span>
+                </div>
+                <span className={styles.pillArrow}>→</span>
+              </button>
+            ),
+          )}
         </div>
       </div>
     </section>

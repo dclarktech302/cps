@@ -116,11 +116,7 @@ export const organizationSchema = {
       reviewBody: 'Their HR background gave me perspectives I\'d never considered. The consultation completely changed how I approach operations.',
     },
   ],
-  sameAs: [
-    'https://www.facebook.com/clarkandco',
-    'https://www.linkedin.com/company/clarkandco',
-    'https://twitter.com/clarkandco',
-  ],
+  sameAs: [],
 };
 
 export const breadcrumbSchema = {

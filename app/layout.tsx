@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "HR consulting",
     "software engineering",
     "local business services",
-    "Clark and Co",
+    "Clark & Co",
   ],
   authors: [{ name: "Clark & Co. Professional Services" }],
   creator: "Clark & Co. Professional Services",
@@ -80,10 +80,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
+
 };
 
 export default function RootLayout({
