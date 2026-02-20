@@ -31,19 +31,37 @@ function ContactForm({ onSuccess }: ContactFormProps) {
     return e;
   };
 
-  const submit = () => {
+  const submit = async () => {
     const e = validate();
     if (Object.keys(e).length) {
       setErrors(e);
       return;
     }
     setStatus('loading');
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          setErrors({ _form: data.error ?? 'Submission failed. Please try again.' });
+        }
+        setStatus('idle');
+        return;
+      }
       setStatus('done');
       onSuccess();
       setForm(blank);
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1300);
+    } catch {
+      setErrors({ _form: 'Network error. Please check your connection and try again.' });
+      setStatus('idle');
+    }
   };
 
   return (
@@ -134,6 +152,10 @@ function ContactForm({ onSuccess }: ContactFormProps) {
         />
         {errors.message && <span className={styles.errorMsg}>{errors.message}</span>}
       </div>
+
+      {errors._form && (
+        <p className={styles.formError}>{errors._form}</p>
+      )}
 
       <Button
         variant="navy"
